@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Exo 2", sans-serif;
+}
+
+body {
+  background: url("https://images.pexels.com/photos/1021365/pexels-photo-1021365.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+    no-repeat;
+  background-size: cover;
+  padding: 10px;
+}
+
+.weather-boxes {
+  margin: 50px auto;
+  max-width: 1500px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "kearney scottsbluff chadron mccook alerts alerts "
+    "norfolk ssc york plattsmouth alerts alerts"
+    "ogallala ainsworth oneill milford alerts alerts"
+    "alma oshkosh gordon lexington alerts alerts";
+}
+
+#alert-box {
+  max-height: 860px;
+  border: 1px solid rgb(27, 29, 41);
+  border-radius: 20px;
+  grid-area: alerts;
+  background: rgba(204, 204, 204, 0.767);
+  overflow: auto;
+}
+
+#alert-box p {
+  padding-bottom: 10px;
+}
+.city {
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgb(27, 29, 41);
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.795);
+  color: white;
+  box-shadow: 0 0 5px rgba(104, 104, 104, 0.8);
+}
+
+.city-id {
+  padding: 5px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: rgba(24, 25, 44, 0.836);
+}
+
+.city-temp {
+  /* background: rgb(27, 29, 41);
+  width: 115px;
+  height: 115px;
+  margin: 0 auto;
+  border-radius: 10%; */
+  font-size: 5.2em;
+  font-weight: bold;
+  padding: 0;
+  color: rgb(27, 29, 41);
+}
+
+.city-wind {
+  color: rgb(27, 29, 41);
+}
+
+.city-forecast {
+  margin-top: 10px;
+  color: rgb(27, 29, 41);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#kearney {
+  grid-area: kearney;
+}
+#scottsbluff {
+  grid-area: scottsbluff;
+}
+#chadron {
+  grid-area: chadron;
+}
+#mccook {
+  grid-area: mccook;
+}
+#norfolk {
+  grid-area: norfolk;
+}
+#ssc {
+  grid-area: ssc;
+}
+#york {
+  grid-area: york;
+}
+#plattsmouth {
+  grid-area: plattsmouth;
+}
+#ogallala {
+  grid-area: ogallala;
+}
+#ainsworth {
+  grid-area: ainsworth;
+}
+#oneill {
+  grid-area: oneill;
+}
+#milford {
+  grid-area: milford;
+}
+#alma {
+  grid-area: alma;
+}
+#oshkosh {
+  grid-area: oshkosh;
+}
+#gordon {
+  grid-area: gordon;
+}
+#lexington {
+  grid-area: lexington;
+}
