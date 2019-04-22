@@ -13,7 +13,7 @@ body {
 }
 
 .weather-boxes {
-  margin: 50px auto;
+  margin: 30px auto;
   max-width: 1500px;
   display: grid;
   grid-gap: 20px;
@@ -26,16 +26,38 @@ body {
 
 #alert-box {
   max-height: 860px;
+  min-width: 500px;
   border: 1px solid rgb(27, 29, 41);
   border-radius: 20px;
   grid-area: alerts;
-  background: rgba(204, 204, 204, 0.767);
-  overflow: auto;
+  background: rgba(255, 255, 255, 0.795);
+  /* overflow: auto; */
 }
 
 #alert-box p {
-  padding-bottom: 10px;
+  padding: 10px;
 }
+
+#alerts {
+  max-height: 800px;
+  overflow: auto;
+  padding: 0 15px 15px 15px;
+}
+
+.every-other:nth-child(even) {
+  background: rgba(187, 186, 186, 0.795);
+}
+
+.heading {
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.3em;
+  background: rgba(24, 25, 44, 0.836);
+}
+
 .city {
   width: 200px;
   height: 200px;
