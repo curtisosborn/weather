@@ -1,7 +1,7 @@
 let alerts_div = document.getElementById("alerts");
 const apiKey = "02f45fec465c766816c5e073e1f1fc15";
 const api =
-  "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?appid=02f45fec465c766816c5e073e1f1fc15&units=imperial";
+  "http://api.openweathermap.org/data/2.5/weather?appid=02f45fec465c766816c5e073e1f1fc15&units=imperial";
 
 // The code below will pull api weather data for Kearney
 
@@ -440,6 +440,7 @@ function getAlerts() {
         const event = alert.properties.event;
         const description = alert.properties.description;
         const area = alert.properties.areaDesc;
+        const headline = alert.properties.headline;
         const div = document.createElement("div");
         div.className = "every-other";
 
@@ -449,19 +450,27 @@ function getAlerts() {
         const h3 = document.createElement("h3");
         h3.textContent = area;
 
+        const h4 = document.createElement("h4");
+        h4.textContent = headline;
+
         const p = document.createElement("p");
-        p.textContent = `Description: ${description}`;
+        p.textContent = `${description}`;
 
         // container.appendChild(card);
         alerts_div.appendChild(div);
         div.appendChild(h2);
         div.appendChild(h3);
+        div.appendChild(h4);
         div.appendChild(p);
       });
     })
     .catch(error => {
       console.log(error);
     });
+}
+
+function autorefresh(time) {
+  setTimeout("location.reload(true);", time);
 }
 
 kearneyWeather();
