@@ -1,7 +1,7 @@
 let alerts_div = document.getElementById("alerts");
 const apiKey = "02f45fec465c766816c5e073e1f1fc15";
 const api =
-  "http://api.openweathermap.org/data/2.5/weather?appid=02f45fec465c766816c5e073e1f1fc15&units=imperial";
+  "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?appid=02f45fec465c766816c5e073e1f1fc15&units=imperial";
 
 // The code below will pull api weather data for Kearney
 
