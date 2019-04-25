@@ -41,9 +41,21 @@ body {
 #alerts {
   max-height: 800px;
   overflow: auto;
-  padding: 0 15px 15px 15px;
+  padding: 0 10px 10px 10px;
 }
 
+#alerts h3 {
+  font-size: 1em;
+}
+#alerts h4 {
+  padding-top: 5px;
+  font-size: 0.78em;
+}
+
+.every-other {
+  padding: 5px;
+  border-radius: 10px;
+}
 .every-other:nth-child(even) {
   background: rgba(187, 186, 186, 0.795);
 }
