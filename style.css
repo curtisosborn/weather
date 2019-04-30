@@ -37,6 +37,7 @@ body {
   margin: 10px auto;
   height: 200px;
   padding: 0;
+  border: 1px solid rgb(37, 37, 41);
   background: rgba(226, 226, 226, 0.747);
   box-shadow: 0 0 5px rgba(19, 19, 19, 0.8);
 }
@@ -47,7 +48,6 @@ body {
   height: 95%;
   background: rgba(226, 226, 226, 0.747);
   margin: 20px auto;
-  box-shadow: 0 0 5px rgba(19, 19, 19, 0.8)
 }
 
 .city-id {
@@ -95,10 +95,10 @@ body {
 
 .high-low {
   font-weight: 500;
-  padding-top: 13px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 0.8em;
+  padding-top: 5px;
+  padding-left: 0px;
+  padding-right: 5px;
+  font-size: 1em;
   /* font-weight: bold; */
 }
 .city-forecast {
@@ -114,7 +114,7 @@ body {
 
 #alerts-div {
   padding: 10px;
-  height: 790px;
+  height: 780px;
   overflow: auto;
 }
 
@@ -140,6 +140,6 @@ body {
   margin: 0 0 5px 0;
 }
 .every-other p {
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin: 0;
 }
