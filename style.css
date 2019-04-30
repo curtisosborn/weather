@@ -37,7 +37,6 @@ body {
   margin: 10px auto;
   height: 200px;
   padding: 0;
-  border: 1px solid rgb(37, 37, 41);
   background: rgba(226, 226, 226, 0.747);
   box-shadow: 0 0 5px rgba(19, 19, 19, 0.8);
 }
@@ -48,6 +47,7 @@ body {
   height: 95%;
   background: rgba(226, 226, 226, 0.747);
   margin: 20px auto;
+  box-shadow: 0 0 5px rgba(19, 19, 19, 0.8)
 }
 
 .city-id {
