@@ -1026,6 +1026,9 @@ alerts.onload = function() {
 };
 
 //! Global functions for converting numbers
+function autorefresh(time) {
+  setTimeout("location.reload(true);", time);
+}
 
 function celsius2farenheit(num) {
   return Math.round(num * (9 / 5) + 32);
