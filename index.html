@@ -4,250 +4,364 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" href="icons/rainCloud.png" />
     <link
-      href="https://fonts.googleapis.com/css?family=Exo+2|Righteous"
+      href="https://fonts.googleapis.com/css?family=Exo+2:400,500,700"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Nebraska Weather & Alerts</title>
+    <title>Bootstrap Grid</title>
   </head>
   <body>
-    <section class="weather-boxes">
-      <div class="city" id="kearney">
-        <div class="city-id">
-          <p>Kearney</p>
-        </div>
-        <div class="city-temp">
-          <p id="kearney-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="kearney-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="kearney-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="scottsbluff">
-        <div class="city-id">
-          <p>Scottsbluff</p>
-        </div>
-        <div class="city-temp">
-          <p id="scottsbluff-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="scottsbluff-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="scottsbluff-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="chadron">
-        <div class="city-id">
-          <p>Chadron</p>
-        </div>
-        <div class="city-temp">
-          <p id="chadron-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="chadron-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="chadron-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="mccook">
-        <div class="city-id">
-          <p>McCook</p>
-        </div>
-        <div class="city-temp">
-          <p id="mccook-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="mccook-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="mccook-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="norfolk">
-        <div class="city-id">
-          <p>Norfolk</p>
-        </div>
-        <div class="city-temp">
-          <p id="norfolk-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="norfolk-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="norfolk-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="ssc">
-        <div class="city-id">
-          <p>S. Sioux City</p>
-        </div>
-        <div class="city-temp">
-          <p id="ssc-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="ssc-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="ssc-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="york">
-        <div class="city-id">
-          <p>York</p>
-        </div>
-        <div class="city-temp">
-          <p id="york-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="york-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="york-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="plattsmouth">
-        <div class="city-id">
-          <p>Plattsmouth</p>
-        </div>
-        <div class="city-temp">
-          <p id="plattsmouth-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="plattsmouth-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="plattsmouth-forecast"></p>
-        </div>
-      </div>
-      </div>
-      <div class="city" id="ogallala">
-        <div class="city-id">
-          <p>Ogallala</p>
-        </div>
-        <div class="city-temp">
-          <p id="ogallala-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="ogallala-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="ogallala-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="ainsworth">
-        <div class="city-id">
-          <p>Ainsworth</p>
-        </div>
-        <div class="city-temp">
-          <p id="ainsworth-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="ainsworth-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="ainsworth-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="oneill">
-        <div class="city-id">
-          <p>O'Neill</p>
-        </div>
-        <div class="city-temp">
-          <p id="oneill-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="oneill-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="oneill-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="milford">
-        <div class="city-id">
-          <p>Milford</p>
-        </div>
-        <div class="city-temp">
-          <p id="milford-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="milford-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="milford-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="alma">
-        <div class="city-id">
-          <p>Alma</p>
-        </div>
-        <div class="city-temp">
-          <p id="alma-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="alma-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="alma-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="oshkosh">
-        <div class="city-id">
-          <p>Oshkosh</p>
-        </div>
-        <div class="city-temp">
-          <p id="oshkosh-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="oshkosh-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="oshkosh-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="gordon">
-        <div class="city-id">
-          <p>Gordon</p>
-        </div>
-        <div class="city-temp">
-          <p id="gordon-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="gordon-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="gordon-forecast"></p>
-        </div>
-      </div>
-      <div class="city" id="lexington">
-        <div class="city-id">
-          <p>Lexington</p>
-        </div>
-        <div class="city-temp">
-          <p id="lexington-temp"></p>
-        </div>
-        <div class="city-wind">
-          <p id="lexington-wind"></p>
-        </div>
-        <div class="city-forecast">
-          <p id="lexington-forecast"></p>
-        </div>
-      </div> 
-      <div id="alert-box">
-          <div class="heading">
-            <h1>Alerts</h1>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="subcontainer-one col-lg-8">
+          <div class="row">
+            <div class="col box">
+              <div class="city-id">
+                <p>Kearney</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="kearney-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="kearney-humidity"></p>
+                  <p id="kearney-vis"></p>
+                  <p id="kearney-wind"></p>
+                  <p id="kearney-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="kearney-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Scottsbluff</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="scottsbluff-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="scottsbluff-humidity"></p>
+                  <p id="scottsbluff-vis"></p>
+                  <p id="scottsbluff-wind"></p>
+                  <p id="scottsbluff-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="scottsbluff-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Chadron</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="chadron-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="chadron-humidity"></p>
+                  <p id="chadron-vis"></p>
+                  <p id="chadron-wind"></p>
+                  <p id="chadron-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="chadron-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Norfolk</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="norfolk-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="norfolk-humidity"></p>
+                  <p id="norfolk-vis"></p>
+                  <p id="norfolk-wind"></p>
+                  <p id="norfolk-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="norfolk-forecast"></p>
+              </div>
+            </div>
+            <!-- <div class="col box"></div> -->
           </div>
-          <div id="alerts"></div>
-        </div> 
-    </section>
-    
-
+          <div class="row">
+            <div class="col box">
+              <div class="city-id">
+                <p>McCook</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="mccook-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="mccook-humidity"></p>
+                  <p id="mccook-vis"></p>
+                  <p id="mccook-wind"></p>
+                  <p id="mccook-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="mccook-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Ogallala</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="ogallala-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="ogallala-humidity"></p>
+                  <p id="ogallala-vis"></p>
+                  <p id="ogallala-wind"></p>
+                  <p id="ogallala-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="ogallala-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>North Platte</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="northplatte-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="northplatte-humidity"></p>
+                  <p id="northplatte-vis"></p>
+                  <p id="northplatte-wind"></p>
+                  <p id="northplatte-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="northplatte-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Lexington</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="lexington-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="lexington-humidity"></p>
+                  <p id="lexington-vis"></p>
+                  <p id="lexington-wind"></p>
+                  <p id="lexington-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="lexington-forecast"></p>
+              </div>
+            </div>
+            <!-- <div class="col box"></div> -->
+          </div>
+          <div class="row">
+            <div class="col box">
+              <div class="city-id">
+                <p>Ainsworth</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="ainsworth-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="ainsworth-humidity"></p>
+                  <p id="ainsworth-vis"></p>
+                  <p id="ainsworth-wind"></p>
+                  <p id="ainsworth-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="ainsworth-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>O'Neill</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="oneill-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="oneill-humidity"></p>
+                  <p id="oneill-vis"></p>
+                  <p id="oneill-wind"></p>
+                  <p id="oneill-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="oneill-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Hartington</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="hartington-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="hartington-humidity"></p>
+                  <p id="hartington-vis"></p>
+                  <p id="hartington-wind"></p>
+                  <p id="hartington-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="hartington-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>S. Sioux City</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="ssc-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="ssc-humidity"></p>
+                  <p id="ssc-vis"></p>
+                  <p id="ssc-wind"></p>
+                  <p id="ssc-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="ssc-forecast"></p>
+              </div>
+            </div>
+            <!-- <div class="col box"></div> -->
+          </div>
+          <div class="row">
+            <div class="col box">
+              <div class="city-id">
+                <p>Broken Bow</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="brokenbow-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="brokenbow-humidity"></p>
+                  <p id="brokenbow-vis"></p>
+                  <p id="brokenbow-wind"></p>
+                  <p id="brokenbow-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="brokenbow-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Columbus</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="columbus-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="columbus-humidity"></p>
+                  <p id="columbus-vis"></p>
+                  <p id="columbus-wind"></p>
+                  <p id="columbus-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="columbus-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>York</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="york-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="york-humidity"></p>
+                  <p id="york-vis"></p>
+                  <p id="york-wind"></p>
+                  <p id="york-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="york-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Plattsmouth</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="plattsmouth-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="plattsmouth-humidity"></p>
+                  <p id="plattsmouth-vis"></p>
+                  <p id="plattsmouth-wind"></p>
+                  <p id="plattsmouth-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="plattsmouth-forecast"></p>
+              </div>
+            </div>
+            <!-- <div class="col box"></div> -->
+          </div>
+        </div>
+        <div class="subcontainer-two col-lg-4">
+          <div class="alert-box">
+            <p class="alert-heading">Alerts</p>
+            <div id="alerts-div"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
