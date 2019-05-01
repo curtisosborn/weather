@@ -27,17 +27,17 @@ body {
 
 .subcontainer-two {
   height: 900px;
+  padding: 0;
   /* background: rgb(164, 179, 247); */
 }
 
 .box {
   border-radius: 25px;
-  min-width: 240px;
-  max-width: 235px;
+  min-width: 250px;
+  max-width: 250px;
   margin: 10px auto;
   height: 200px;
   padding: 0;
-
   background: rgba(226, 226, 226, 0.87);
   box-shadow: 0 0 5px rgba(19, 19, 19, 0.8);
 }
@@ -47,7 +47,8 @@ body {
   width: 95%;
   height: 95%;
   background: rgba(226, 226, 226, 0.856);
-  margin: 20px auto;
+  margin: 20px 0;
+  padding: 0;
 }
 
 .city-id {
@@ -108,7 +109,7 @@ body {
   padding-top: 5px;
   padding-left: 0px;
   padding-right: 5px;
-  font-size: .9em;
+  font-size: 0.9em;
   font-weight: bold;
 }
 .city-forecast {
