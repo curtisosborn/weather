@@ -1,4 +1,7 @@
 let alerts_div = document.getElementById("alerts");
+var now = "";
+var later = "";
+
 // ? ****** Below is code for Kearney *******
 var kearneyForecast = new XMLHttpRequest();
 var kearneyCurrent = new XMLHttpRequest();
@@ -15,15 +18,6 @@ kearneyForecast.send();
 kearneyForecast.onload = function() {
   if (kearneyForecast.status === 200) {
     kFore = JSON.parse(kearneyForecast.responseText);
-    //console.log(kFore);
-    // document.getElementById("g").innerHTML =
-    //   kFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   kFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   kFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   kFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -37,8 +31,6 @@ kearneyCurrent.send();
 
 kearneyCurrent.onload = function() {
   kCurr = JSON.parse(kearneyCurrent.responseText);
-  console.log(kCurr);
-  //console.log(celsius2farenheit(kCurr.properties.temperature.value));
   document.getElementById("kearney-temp").innerHTML = celsius2farenheit(
     kCurr.properties.temperature.value
   );
@@ -59,6 +51,19 @@ kearneyCurrent.onload = function() {
   document.getElementById("kearney-vis").innerHTML =
     "Visibility: " + meters2miles(kCurr.properties.visibility.value) + " miles";
 };
+
+function displayKearneyDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    kFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + kFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + kFore.properties.periods[1].name + "</h2>";
+  now += "<p>" + kFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Kearney";
+}
 // ? ****** Above is code for Kearney *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for Scottsbluff *******
@@ -69,7 +74,7 @@ var sbCurr;
 
 scottsbluffForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/CYS/150,43/forecast",
   true
 );
 scottsbluffForecast.responseType = "text";
@@ -78,15 +83,6 @@ scottsbluffForecast.send();
 scottsbluffForecast.onload = function() {
   if (scottsbluffForecast.status === 200) {
     sbFore = JSON.parse(scottsbluffForecast.responseText);
-    //console.log(kFore);
-    // document.getElementById("g").innerHTML =
-    //   sbFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   sbFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   sbFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   sbFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -100,8 +96,6 @@ scottsbluffCurrent.send();
 
 scottsbluffCurrent.onload = function() {
   sbCurr = JSON.parse(scottsbluffCurrent.responseText);
-  //console.log(sbCurr);
-  //console.log(celsius2farenheit(sbCurr.properties.temperature.value));
   document.getElementById("scottsbluff-temp").innerHTML = celsius2farenheit(
     sbCurr.properties.temperature.value
   );
@@ -124,6 +118,19 @@ scottsbluffCurrent.onload = function() {
     meters2miles(sbCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayScottsbluffDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    sbFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + sbFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + sbFore.properties.periods[1].name + "</h2>";
+  now += "<p>" + sbFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Scottsbluff";
+}
 // ? ****** Above is code for Scottsbluff *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for chadron *******
@@ -134,7 +141,7 @@ var chadronCurr;
 
 chadronForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/CYS/176,86/forecast",
   true
 );
 chadronForecast.responseType = "text";
@@ -143,15 +150,6 @@ chadronForecast.send();
 chadronForecast.onload = function() {
   if (chadronForecast.status === 200) {
     chadronFore = JSON.parse(chadronForecast.responseText);
-    //console.log(chadronFore);
-    // document.getElementById("g").innerHTML =
-    //   chadronFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   chadronFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   chadronFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   chadronFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -165,8 +163,6 @@ chadronCurrent.send();
 
 chadronCurrent.onload = function() {
   chadronCurr = JSON.parse(chadronCurrent.responseText);
-  //console.log(chadronCurr);
-  //console.log(celsius2farenheit(chadronCurr.properties.temperature.value));
   document.getElementById("chadron-temp").innerHTML = celsius2farenheit(
     chadronCurr.properties.temperature.value
   );
@@ -191,6 +187,20 @@ chadronCurrent.onload = function() {
     meters2miles(chadronCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayChadronDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    chadronFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + chadronFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + chadronFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + chadronFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Chadron";
+}
 // ? ****** Above is code for chadron *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for norfolk *******
@@ -201,7 +211,7 @@ var norfolkCurr;
 
 norfolkForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast", //!! These apis will be wrong when i decide to use them
+  "https://api.weather.gov/gridpoints/OAX/32,95/forecast", //!! These apis will be wrong when i decide to use them
   true
 );
 norfolkForecast.responseType = "text";
@@ -210,15 +220,6 @@ norfolkForecast.send();
 norfolkForecast.onload = function() {
   if (norfolkForecast.status === 200) {
     norfolkFore = JSON.parse(norfolkForecast.responseText);
-    //console.log(norfolkFore);
-    // document.getElementById("g").innerHTML =
-    //   norfolkFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   norfolkFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   norfolkFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   norfolkFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -232,8 +233,6 @@ norfolkCurrent.send();
 
 norfolkCurrent.onload = function() {
   norfolkCurr = JSON.parse(norfolkCurrent.responseText);
-  //console.log(norfolkCurr);
-  //console.log(celsius2farenheit(norfolkCurr.properties.temperature.value));
   document.getElementById("norfolk-temp").innerHTML = celsius2farenheit(
     norfolkCurr.properties.temperature.value
   );
@@ -258,6 +257,20 @@ norfolkCurrent.onload = function() {
     meters2miles(norfolkCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayNorfolkDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    norfolkFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + norfolkFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + norfolkFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + norfolkFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Norfolk";
+}
 // ? ****** Above is code for norfolk *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for mccook *******
@@ -268,7 +281,7 @@ var mccookCurr;
 
 mccookForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/GLD/94,88/forecast",
   true
 );
 mccookForecast.responseType = "text";
@@ -277,15 +290,6 @@ mccookForecast.send();
 mccookForecast.onload = function() {
   if (mccookForecast.status === 200) {
     mccookFore = JSON.parse(mccookForecast.responseText);
-    //console.log(mccookFore);
-    // document.getElementById("g").innerHTML =
-    //   mccookFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   mccookFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   mccookFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   mccookFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -299,8 +303,6 @@ mccookCurrent.send();
 
 mccookCurrent.onload = function() {
   mccookCurr = JSON.parse(mccookCurrent.responseText);
-  //console.log(mccookCurr);
-  //console.log(celsius2farenheit(mccookCurr.properties.temperature.value));
   document.getElementById("mccook-temp").innerHTML = celsius2farenheit(
     mccookCurr.properties.temperature.value
   );
@@ -325,6 +327,20 @@ mccookCurrent.onload = function() {
     meters2miles(mccookCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayMccookDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    mccookFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + mccookFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + mccookFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + mccookFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: McCook";
+}
 // ? ****** Above is code for mccook *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for ogallala *******
@@ -335,7 +351,7 @@ var ogallalaCurr;
 
 ogallalaForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/LBF/34,40/forecast",
   true
 );
 ogallalaForecast.responseType = "text";
@@ -344,15 +360,6 @@ ogallalaForecast.send();
 ogallalaForecast.onload = function() {
   if (ogallalaForecast.status === 200) {
     ogallalaFore = JSON.parse(ogallalaForecast.responseText);
-    //console.log(ogallalaFore);
-    // document.getElementById("g").innerHTML =
-    //   ogallalaFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   ogallalaFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   ogallalaFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   ogallalaFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -366,8 +373,6 @@ ogallalaCurrent.send();
 
 ogallalaCurrent.onload = function() {
   ogallalaCurr = JSON.parse(ogallalaCurrent.responseText);
-  //console.log(ogallalaCurr);
-  //console.log(celsius2farenheit(ogallalaCurr.properties.temperature.value));
   document.getElementById("ogallala-temp").innerHTML = celsius2farenheit(
     ogallalaCurr.properties.temperature.value
   );
@@ -392,6 +397,20 @@ ogallalaCurrent.onload = function() {
     meters2miles(ogallalaCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayOgallalaDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    ogallalaFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + ogallalaFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + ogallalaFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + ogallalaFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Ogallala";
+}
 // ? ****** Above is code for ogallala *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for northplatte *******
@@ -402,7 +421,7 @@ var northplatteCurr;
 
 northplatteForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/LBF/67,39/forecast",
   true
 );
 northplatteForecast.responseType = "text";
@@ -411,15 +430,6 @@ northplatteForecast.send();
 northplatteForecast.onload = function() {
   if (northplatteForecast.status === 200) {
     northplatteFore = JSON.parse(northplatteForecast.responseText);
-    //console.log(northplatteFore);
-    // document.getElementById("g").innerHTML =
-    //   northplatteFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   northplatteFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   northplatteFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   northplatteFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -433,8 +443,6 @@ northplatteCurrent.send();
 
 northplatteCurrent.onload = function() {
   northplatteCurr = JSON.parse(northplatteCurrent.responseText);
-  //console.log(northplatteCurr);
-  //console.log(celsius2farenheit(northplatteCurr.properties.temperature.value));
   document.getElementById("northplatte-temp").innerHTML = celsius2farenheit(
     northplatteCurr.properties.temperature.value
   );
@@ -459,6 +467,23 @@ northplatteCurrent.onload = function() {
     meters2miles(northplatteCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayNorthPlatteDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    northplatteFore.properties.periods[0].name +
+    "</h2>";
+  now +=
+    "<p>" + northplatteFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + northplatteFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" +
+    northplatteFore.properties.periods[1].detailedForecast +
+    "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: North Platte";
+}
 // ? ****** Above is code for northplatte *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for lexington *******
@@ -469,7 +494,7 @@ var lexingtonCurr;
 
 lexingtonForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/GID/18,78/forecast",
   true
 );
 lexingtonForecast.responseType = "text";
@@ -478,15 +503,6 @@ lexingtonForecast.send();
 lexingtonForecast.onload = function() {
   if (lexingtonForecast.status === 200) {
     lexingtonFore = JSON.parse(lexingtonForecast.responseText);
-    //console.log(lexingtonFore);
-    // document.getElementById("g").innerHTML =
-    //   lexingtonFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   lexingtonFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   lexingtonFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   lexingtonFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -500,8 +516,6 @@ lexingtonCurrent.send();
 
 lexingtonCurrent.onload = function() {
   lexingtonCurr = JSON.parse(lexingtonCurrent.responseText);
-  //console.log(lexingtonCurr);
-  //console.log(celsius2farenheit(lexingtonCurr.properties.temperature.value));
   document.getElementById("lexington-temp").innerHTML = celsius2farenheit(
     lexingtonCurr.properties.temperature.value
   );
@@ -526,6 +540,20 @@ lexingtonCurrent.onload = function() {
     meters2miles(lexingtonCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayLexingtonDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    lexingtonFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + lexingtonFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + lexingtonFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + lexingtonFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Lexington";
+}
 // ? ****** Above is code for lexington *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for ainsworth *******
@@ -536,7 +564,7 @@ var ainsworthCurr;
 
 ainsworthForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/LBF/100,102/forecast",
   true
 );
 ainsworthForecast.responseType = "text";
@@ -545,15 +573,6 @@ ainsworthForecast.send();
 ainsworthForecast.onload = function() {
   if (ainsworthForecast.status === 200) {
     ainsworthFore = JSON.parse(ainsworthForecast.responseText);
-    //console.log(ainsworthFore);
-    // document.getElementById("g").innerHTML =
-    //   ainsworthFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   ainsworthFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   ainsworthFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   ainsworthFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -567,8 +586,6 @@ ainsworthCurrent.send();
 
 ainsworthCurrent.onload = function() {
   ainsworthCurr = JSON.parse(ainsworthCurrent.responseText);
-  //console.log(ainsworthCurr);
-  //console.log(celsius2farenheit(ainsworthCurr.properties.temperature.value));
   document.getElementById("ainsworth-temp").innerHTML = celsius2farenheit(
     ainsworthCurr.properties.temperature.value
   );
@@ -593,6 +610,20 @@ ainsworthCurrent.onload = function() {
     meters2miles(ainsworthCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayAinsworthDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    ainsworthFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + ainsworthFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + ainsworthFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + ainsworthFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Ainsworth";
+}
 // ? ****** Above is code for ainsworth *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for oneill *******
@@ -603,7 +634,7 @@ var oneillCurr;
 
 oneillForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/LBF/141,96/forecast",
   true
 );
 oneillForecast.responseType = "text";
@@ -612,15 +643,6 @@ oneillForecast.send();
 oneillForecast.onload = function() {
   if (oneillForecast.status === 200) {
     oneillFore = JSON.parse(oneillForecast.responseText);
-    //console.log(oneillFore);
-    // document.getElementById("g").innerHTML =
-    //   oneillFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   oneillFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   oneillFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   oneillFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -634,8 +656,6 @@ oneillCurrent.send();
 
 oneillCurrent.onload = function() {
   oneillCurr = JSON.parse(oneillCurrent.responseText);
-  //console.log(oneillCurr);
-  //console.log(celsius2farenheit(oneillCurr.properties.temperature.value));
   document.getElementById("oneill-temp").innerHTML = celsius2farenheit(
     oneillCurr.properties.temperature.value
   );
@@ -660,6 +680,20 @@ oneillCurrent.onload = function() {
     meters2miles(oneillCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayOneillDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    oneillFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + oneillFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + oneillFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + oneillFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: O'Neill";
+}
 // ? ****** Above is code for oneill *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for hartington *******
@@ -670,7 +704,7 @@ var hartingtonCurr;
 
 hartingtonForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/OAX/37,122/forecast",
   true
 );
 hartingtonForecast.responseType = "text";
@@ -679,15 +713,6 @@ hartingtonForecast.send();
 hartingtonForecast.onload = function() {
   if (hartingtonForecast.status === 200) {
     hartingtonFore = JSON.parse(hartingtonForecast.responseText);
-    //console.log(hartingtonFore);
-    // document.getElementById("g").innerHTML =
-    //   hartingtonFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   hartingtonFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   hartingtonFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   hartingtonFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -701,8 +726,6 @@ hartingtonCurrent.send();
 
 hartingtonCurrent.onload = function() {
   hartingtonCurr = JSON.parse(hartingtonCurrent.responseText);
-  //console.log(hartingtonCurr);
-  //console.log(celsius2farenheit(hartingtonCurr.properties.temperature.value));
   document.getElementById("hartington-temp").innerHTML = celsius2farenheit(
     hartingtonCurr.properties.temperature.value
   );
@@ -727,6 +750,22 @@ hartingtonCurrent.onload = function() {
     meters2miles(hartingtonCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayHartingtonDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    hartingtonFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + hartingtonFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + hartingtonFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" +
+    hartingtonFore.properties.periods[1].detailedForecast +
+    "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Hartington";
+}
 // ? ****** Above is code for hartington *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for ssc *******
@@ -737,7 +776,7 @@ var sscCurr;
 
 sscForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/FSD/106,14/forecast",
   true
 );
 sscForecast.responseType = "text";
@@ -746,15 +785,6 @@ sscForecast.send();
 sscForecast.onload = function() {
   if (sscForecast.status === 200) {
     sscFore = JSON.parse(sscForecast.responseText);
-    //console.log(sscFore);
-    // document.getElementById("g").innerHTML =
-    //   sscFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   sscFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   sscFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   sscFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -768,8 +798,6 @@ sscCurrent.send();
 
 sscCurrent.onload = function() {
   sscCurr = JSON.parse(sscCurrent.responseText);
-  //console.log(sscCurr);
-  //console.log(celsius2farenheit(sscCurr.properties.temperature.value));
   document.getElementById("ssc-temp").innerHTML = celsius2farenheit(
     sscCurr.properties.temperature.value
   );
@@ -792,6 +820,19 @@ sscCurrent.onload = function() {
     meters2miles(sscCurr.properties.visibility.value) +
     " miles";
 };
+
+function displaySscDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    sscFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + sscFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + sscFore.properties.periods[1].name + "</h2>";
+  now += "<p>" + sscFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: S. Sioux City";
+}
 // ? ****** Above is code for ssc *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for brokenbow *******
@@ -802,7 +843,7 @@ var brokenbowCurr;
 
 brokenbowForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/LBF/106,49/forecast",
   true
 );
 brokenbowForecast.responseType = "text";
@@ -811,15 +852,6 @@ brokenbowForecast.send();
 brokenbowForecast.onload = function() {
   if (brokenbowForecast.status === 200) {
     brokenbowFore = JSON.parse(brokenbowForecast.responseText);
-    //console.log(brokenbowFore);
-    // document.getElementById("g").innerHTML =
-    //   brokenbowFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   brokenbowFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   brokenbowFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   brokenbowFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -833,8 +865,6 @@ brokenbowCurrent.send();
 
 brokenbowCurrent.onload = function() {
   brokenbowCurr = JSON.parse(brokenbowCurrent.responseText);
-  //console.log(brokenbowCurr);
-  //console.log(celsius2farenheit(brokenbowCurr.properties.temperature.value));
   document.getElementById("brokenbow-temp").innerHTML = celsius2farenheit(
     brokenbowCurr.properties.temperature.value
   );
@@ -859,6 +889,20 @@ brokenbowCurrent.onload = function() {
     meters2miles(brokenbowCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayBrokenBowDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    brokenbowFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + brokenbowFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + brokenbowFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + brokenbowFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Broken Bow";
+}
 // ? ****** Above is code for brokenbow *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for columbus *******
@@ -869,7 +913,7 @@ var columbusCurr;
 
 columbusForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/OAX/33,67/forecast",
   true
 );
 columbusForecast.responseType = "text";
@@ -878,15 +922,6 @@ columbusForecast.send();
 columbusForecast.onload = function() {
   if (columbusForecast.status === 200) {
     columbusFore = JSON.parse(columbusForecast.responseText);
-    //console.log(columbusFore);
-    // document.getElementById("g").innerHTML =
-    //   columbusFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   columbusFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   columbusFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   columbusFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -900,8 +935,6 @@ columbusCurrent.send();
 
 columbusCurrent.onload = function() {
   columbusCurr = JSON.parse(columbusCurrent.responseText);
-  //console.log(columbusCurr);
-  //console.log(celsius2farenheit(columbusCurr.properties.temperature.value));
   document.getElementById("columbus-temp").innerHTML = celsius2farenheit(
     columbusCurr.properties.temperature.value
   );
@@ -926,6 +959,20 @@ columbusCurrent.onload = function() {
     meters2miles(columbusCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayColumbusDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    columbusFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + columbusFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + columbusFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" + columbusFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Columbus";
+}
 // ? ****** Above is code for columbus *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for york *******
@@ -936,7 +983,7 @@ var yorkCurr;
 
 yorkForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/GID/93,80/forecast",
   true
 );
 yorkForecast.responseType = "text";
@@ -945,15 +992,6 @@ yorkForecast.send();
 yorkForecast.onload = function() {
   if (yorkForecast.status === 200) {
     yorkFore = JSON.parse(yorkForecast.responseText);
-    //console.log(yorkFore);
-    // document.getElementById("g").innerHTML =
-    //   yorkFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   yorkFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   yorkFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   yorkFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -967,8 +1005,6 @@ yorkCurrent.send();
 
 yorkCurrent.onload = function() {
   yorkCurr = JSON.parse(yorkCurrent.responseText);
-  //console.log(yorkCurr);
-  //console.log(celsius2farenheit(yorkCurr.properties.temperature.value));
   document.getElementById("york-temp").innerHTML = celsius2farenheit(
     yorkCurr.properties.temperature.value
   );
@@ -991,6 +1027,19 @@ yorkCurrent.onload = function() {
     meters2miles(yorkCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayYorkDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    yorkFore.properties.periods[0].name +
+    "</h2>";
+  now += "<p>" + yorkFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + yorkFore.properties.periods[1].name + "</h2>";
+  now += "<p>" + yorkFore.properties.periods[1].detailedForecast + "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: York";
+}
 // ? ****** Above is code for york *******
 //! ////////////////////////////////////////////////////////////
 // ? ****** Below is code for plattsmouth *******
@@ -1001,7 +1050,7 @@ var plattsmouthCurr;
 
 plattsmouthForecast.open(
   "GET",
-  "https://api.weather.gov/gridpoints/GID/41,73/forecast",
+  "https://api.weather.gov/gridpoints/OAX/84,48/forecast",
   true
 );
 plattsmouthForecast.responseType = "text";
@@ -1010,15 +1059,6 @@ plattsmouthForecast.send();
 plattsmouthForecast.onload = function() {
   if (plattsmouthForecast.status === 200) {
     plattsmouthFore = JSON.parse(plattsmouthForecast.responseText);
-    //console.log(plattsmouthFore);
-    // document.getElementById("g").innerHTML =
-    //   plattsmouthFore.properties.periods[0].name + ":";
-    // document.getElementById("h").innerHTML =
-    //   plattsmouthFore.properties.periods[0].detailedForecast;
-    // document.getElementById("i").innerHTML =
-    //   plattsmouthFore.properties.periods[1].name + ":";
-    // document.getElementById("j").innerHTML =
-    //   plattsmouthFore.properties.periods[1].detailedForecast;
   }
 };
 
@@ -1032,8 +1072,6 @@ plattsmouthCurrent.send();
 
 plattsmouthCurrent.onload = function() {
   plattsmouthCurr = JSON.parse(plattsmouthCurrent.responseText);
-  //console.log(plattsmouthCurr);
-  //console.log(celsius2farenheit(plattsmouthCurr.properties.temperature.value));
   document.getElementById("plattsmouth-temp").innerHTML = celsius2farenheit(
     plattsmouthCurr.properties.temperature.value
   );
@@ -1058,6 +1096,23 @@ plattsmouthCurrent.onload = function() {
     meters2miles(plattsmouthCurr.properties.visibility.value) +
     " miles";
 };
+
+function displayPlattsmouthDetail() {
+  now =
+    "<div class='detailed-forecast'><h2>" +
+    plattsmouthFore.properties.periods[0].name +
+    "</h2>";
+  now +=
+    "<p>" + plattsmouthFore.properties.periods[0].detailedForecast + "</p>";
+  now += "<h2>" + plattsmouthFore.properties.periods[1].name + "</h2>";
+  now +=
+    "<p>" +
+    plattsmouthFore.properties.periods[1].detailedForecast +
+    "</p></div>";
+  document.getElementById("forecast-div").innerHTML = now;
+  document.querySelector(".forecast-heading").innerHTML =
+    "Detailed Forecast: Plattsmouth";
+}
 // ? ****** Above is code for plattsmouth *******
 
 // ? ****** Below is the code to pull alerts *******
