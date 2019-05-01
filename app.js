@@ -37,7 +37,7 @@ kearneyCurrent.send();
 
 kearneyCurrent.onload = function() {
   kCurr = JSON.parse(kearneyCurrent.responseText);
-  //console.log(kCurr);
+  console.log(kCurr);
   //console.log(celsius2farenheit(kCurr.properties.temperature.value));
   document.getElementById("kearney-temp").innerHTML = celsius2farenheit(
     kCurr.properties.temperature.value
@@ -51,7 +51,11 @@ kearneyCurrent.onload = function() {
   document.getElementById("kearney-humidity").innerHTML =
     "Humidity: " + Math.round(kCurr.properties.relativeHumidity.value) + "%";
   document.getElementById("kearney-wind").innerHTML =
-    "Wind: " + kCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(kCurr.properties.windDirection.value) +
+    " " +
+    kCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("kearney-vis").innerHTML =
     "Visibility: " + meters2miles(kCurr.properties.visibility.value) + " miles";
 };
@@ -110,7 +114,11 @@ scottsbluffCurrent.onload = function() {
   document.getElementById("scottsbluff-humidity").innerHTML =
     "Humidity: " + Math.round(sbCurr.properties.relativeHumidity.value) + "%";
   document.getElementById("scottsbluff-wind").innerHTML =
-    "Wind: " + sbCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(sbCurr.properties.windDirection.value) +
+    " " +
+    sbCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("scottsbluff-vis").innerHTML =
     "Visibility: " +
     meters2miles(sbCurr.properties.visibility.value) +
@@ -173,7 +181,11 @@ chadronCurrent.onload = function() {
     Math.round(chadronCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("chadron-wind").innerHTML =
-    "Wind: " + chadronCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(chadronCurr.properties.windDirection.value) +
+    " " +
+    chadronCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("chadron-vis").innerHTML =
     "Visibility: " +
     meters2miles(chadronCurr.properties.visibility.value) +
@@ -236,7 +248,11 @@ norfolkCurrent.onload = function() {
     Math.round(norfolkCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("norfolk-wind").innerHTML =
-    "Wind: " + norfolkCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(norfolkCurr.properties.windDirection.value) +
+    " " +
+    norfolkCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("norfolk-vis").innerHTML =
     "Visibility: " +
     meters2miles(norfolkCurr.properties.visibility.value) +
@@ -299,7 +315,11 @@ mccookCurrent.onload = function() {
     Math.round(mccookCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("mccook-wind").innerHTML =
-    "Wind: " + mccookCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(mccookCurr.properties.windDirection.value) +
+    " " +
+    mccookCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("mccook-vis").innerHTML =
     "Visibility: " +
     meters2miles(mccookCurr.properties.visibility.value) +
@@ -362,7 +382,11 @@ ogallalaCurrent.onload = function() {
     Math.round(ogallalaCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("ogallala-wind").innerHTML =
-    "Wind: " + ogallalaCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(ogallalaCurr.properties.windDirection.value) +
+    " " +
+    ogallalaCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("ogallala-vis").innerHTML =
     "Visibility: " +
     meters2miles(ogallalaCurr.properties.visibility.value) +
@@ -425,7 +449,11 @@ northplatteCurrent.onload = function() {
     Math.round(northplatteCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("northplatte-wind").innerHTML =
-    "Wind: " + northplatteCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(northplatteCurr.properties.windDirection.value) +
+    " " +
+    northplatteCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("northplatte-vis").innerHTML =
     "Visibility: " +
     meters2miles(northplatteCurr.properties.visibility.value) +
@@ -488,7 +516,11 @@ lexingtonCurrent.onload = function() {
     Math.round(lexingtonCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("lexington-wind").innerHTML =
-    "Wind: " + lexingtonCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(lexingtonCurr.properties.windDirection.value) +
+    " " +
+    lexingtonCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("lexington-vis").innerHTML =
     "Visibility: " +
     meters2miles(lexingtonCurr.properties.visibility.value) +
@@ -551,7 +583,11 @@ ainsworthCurrent.onload = function() {
     Math.round(ainsworthCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("ainsworth-wind").innerHTML =
-    "Wind: " + ainsworthCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(ainsworthCurr.properties.windDirection.value) +
+    " " +
+    ainsworthCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("ainsworth-vis").innerHTML =
     "Visibility: " +
     meters2miles(ainsworthCurr.properties.visibility.value) +
@@ -614,7 +650,11 @@ oneillCurrent.onload = function() {
     Math.round(oneillCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("oneill-wind").innerHTML =
-    "Wind: " + oneillCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(oneillCurr.properties.windDirection.value) +
+    " " +
+    oneillCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("oneill-vis").innerHTML =
     "Visibility: " +
     meters2miles(oneillCurr.properties.visibility.value) +
@@ -677,7 +717,11 @@ hartingtonCurrent.onload = function() {
     Math.round(hartingtonCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("hartington-wind").innerHTML =
-    "Wind: " + hartingtonCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(hartingtonCurr.properties.windDirection.value) +
+    " " +
+    hartingtonCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("hartington-vis").innerHTML =
     "Visibility: " +
     meters2miles(hartingtonCurr.properties.visibility.value) +
@@ -738,7 +782,11 @@ sscCurrent.onload = function() {
   document.getElementById("ssc-humidity").innerHTML =
     "Humidity: " + Math.round(sscCurr.properties.relativeHumidity.value) + "%";
   document.getElementById("ssc-wind").innerHTML =
-    "Wind: " + sscCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(sscCurr.properties.windDirection.value) +
+    " " +
+    sscCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("ssc-vis").innerHTML =
     "Visibility: " +
     meters2miles(sscCurr.properties.visibility.value) +
@@ -801,7 +849,11 @@ brokenbowCurrent.onload = function() {
     Math.round(brokenbowCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("brokenbow-wind").innerHTML =
-    "Wind: " + brokenbowCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(brokenbowCurr.properties.windDirection.value) +
+    " " +
+    brokenbowCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("brokenbow-vis").innerHTML =
     "Visibility: " +
     meters2miles(brokenbowCurr.properties.visibility.value) +
@@ -864,7 +916,11 @@ columbusCurrent.onload = function() {
     Math.round(columbusCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("columbus-wind").innerHTML =
-    "Wind: " + columbusCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(columbusCurr.properties.windDirection.value) +
+    " " +
+    columbusCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("columbus-vis").innerHTML =
     "Visibility: " +
     meters2miles(columbusCurr.properties.visibility.value) +
@@ -925,7 +981,11 @@ yorkCurrent.onload = function() {
   document.getElementById("york-humidity").innerHTML =
     "Humidity: " + Math.round(yorkCurr.properties.relativeHumidity.value) + "%";
   document.getElementById("york-wind").innerHTML =
-    "Wind: " + yorkCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(yorkCurr.properties.windDirection.value) +
+    " " +
+    yorkCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("york-vis").innerHTML =
     "Visibility: " +
     meters2miles(yorkCurr.properties.visibility.value) +
@@ -988,7 +1048,11 @@ plattsmouthCurrent.onload = function() {
     Math.round(plattsmouthCurr.properties.relativeHumidity.value) +
     "%";
   document.getElementById("plattsmouth-wind").innerHTML =
-    "Wind: " + plattsmouthCurr.properties.windSpeed.value + " mph";
+    "Wind: " +
+    convertWind(plattsmouthCurr.properties.windDirection.value) +
+    " " +
+    plattsmouthCurr.properties.windSpeed.value +
+    " mph";
   document.getElementById("plattsmouth-vis").innerHTML =
     "Visibility: " +
     meters2miles(plattsmouthCurr.properties.visibility.value) +
@@ -1009,9 +1073,9 @@ var event = "";
 alerts.onload = function() {
   if (alerts.status === 200) {
     alertObj = JSON.parse(alerts.responseText);
-    console.log(alertObj);
+    // console.log(alertObj);
     for (i = 0; i < alertObj.features.length; i++) {
-      console.log(alertObj.features[i].properties.event);
+      // console.log(alertObj.features[i].properties.event);
       event +=
         "<div class='every-other'><h2>" +
         alertObj.features[i].properties.event +
@@ -1038,4 +1102,61 @@ function meters2miles(num) {
   return Math.round(num / 1609.344);
 }
 
-//console.log("hello");
+var direction = "";
+
+function convertWind(num) {
+  switch (true) {
+    case num <= 11.25:
+      direction = "N";
+      break;
+    case num <= 33.75:
+      direction = "NNE";
+      break;
+    case num <= 56.27:
+      direction = "NE";
+      break;
+    case num <= 78.25:
+      direction = "ENE";
+      break;
+    case num <= 101.25:
+      direction = "E";
+      break;
+    case num <= 123.75:
+      direction = "ESE";
+      break;
+    case num <= 146.25:
+      direction = "SE";
+      break;
+    case num <= 168.75:
+      direction = "SSE";
+      break;
+    case num <= 191.25:
+      direction = "S";
+      break;
+    case num <= 213.75:
+      direction = "SSW";
+      break;
+    case num <= 236.25:
+      direction = "SW";
+      break;
+    case num <= 258.75:
+      direction = "WSW";
+      break;
+    case num <= 281.25:
+      direction = "W";
+      break;
+    case num <= 303.75:
+      direction = "WNW";
+      break;
+    case num <= 326.25:
+      direction = "NW";
+      break;
+    case num <= 348.75:
+      direction = "NNW";
+      break;
+    case num <= 360:
+      direction = "N";
+      break;
+  }
+  return direction;
+}
