@@ -26,7 +26,7 @@ body {
 }
 
 .subcontainer-two {
-  height: 900px;
+  height: 550px;
   padding: 0;
   /* background: rgb(164, 179, 247); */
 }
@@ -40,12 +40,21 @@ body {
   padding: 0;
   background: rgba(226, 226, 226, 0.87);
   box-shadow: 0 0 5px rgba(19, 19, 19, 0.8);
+  cursor: pointer;
 }
 
 .alert-box {
   border-radius: 25px;
   width: 95%;
-  height: 95%;
+  height: 540px;
+  background: rgba(226, 226, 226, 0.856);
+  margin: 0;
+  padding: 0;
+}
+.forecast-box {
+  border-radius: 25px;
+  width: 95%;
+  height: 300px;
   background: rgba(226, 226, 226, 0.856);
   margin: 20px 0;
   padding: 0;
@@ -74,6 +83,22 @@ body {
 }
 
 .alert-heading {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 20, 54, 0.883) 0%,
+    rgba(1, 43, 71, 0.671) 51%,
+    rgba(3, 41, 73, 0.623) 100%
+  );
+  border-top-left-radius: 23px;
+  border-top-right-radius: 23px;
+  padding: 4px 0 0 0;
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-size: 1.9em;
+  font-weight: 500;
+}
+.forecast-heading {
   background: linear-gradient(
     90deg,
     rgba(7, 20, 54, 0.883) 0%,
@@ -125,7 +150,13 @@ body {
 
 #alerts-div {
   padding: 10px;
-  height: 780px;
+  height: 465px;
+  overflow: auto;
+}
+
+#forecast-div {
+  padding: 10px;
+  height: 220px;
   overflow: auto;
 }
 
@@ -153,4 +184,38 @@ body {
 .every-other p {
   font-size: 0.9em;
   margin: 0;
+}
+
+.detailed-forecast {
+  padding: 5px;
+  border-radius: 10px;
+}
+.detailed-forecast:nth-child(even) {
+  background: rgba(9, 7, 34, 0.233);
+}
+.detailed-forecast h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0 0 0 0;
+}
+.detailed-forecast h3 {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+}
+.detailed-forecast h4 {
+  font-size: 0.9em;
+  margin: 0 0 5px 0;
+}
+.detailed-forecast p {
+  font-size: 0.9em;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.instruction {
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0;
+  color: rgb(49, 48, 104);
 }
