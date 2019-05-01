@@ -2,13 +2,18 @@
 <html lang="en">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139409676-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-139409676-1"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'UA-139409676-1');
+      gtag("config", "UA-139409676-1");
     </script>
 
     <meta charset="UTF-8" />
@@ -28,49 +33,49 @@
     <link rel="stylesheet" href="style.css" />
     <title>Nebraska Weather & Alerts</title>
   </head>
-  <body onload= "JavaScript:autorefresh(600000);">
+  <body onload="JavaScript:autorefresh(600000);">
     <div class="container-fluid">
       <div class="row">
         <div class="subcontainer-one col-lg-8">
           <div class="row">
             <div class="col box">
               <div class="city-id">
-                <p>Kearney</p>
+                <p>Ainsworth</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
                   <!-- <p>Temp</p> -->
-                  <p id="kearney-temp"></p>
+                  <p id="ainsworth-temp"></p>
                 </div>
                 <div class="high-low col-sm-7">
-                  <p id="kearney-humidity"></p>
-                  <p id="kearney-vis"></p>
-                  <p id="kearney-wind"></p>
-                  <p id="kearney-chill"></p>
+                  <p id="ainsworth-humidity"></p>
+                  <p id="ainsworth-vis"></p>
+                  <p id="ainsworth-wind"></p>
+                  <p id="ainsworth-chill"></p>
                 </div>
               </div>
               <div class="city-forecast">
-                <p id="kearney-forecast"></p>
+                <p id="ainsworth-forecast"></p>
               </div>
             </div>
             <div class="col box">
               <div class="city-id">
-                <p>Scottsbluff</p>
+                <p>Broken Bow</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
                   <!-- <p>Temp</p> -->
-                  <p id="scottsbluff-temp"></p>
+                  <p id="brokenbow-temp"></p>
                 </div>
                 <div class="high-low col-sm-7">
-                  <p id="scottsbluff-humidity"></p>
-                  <p id="scottsbluff-vis"></p>
-                  <p id="scottsbluff-wind"></p>
-                  <p id="scottsbluff-chill"></p>
+                  <p id="brokenbow-humidity"></p>
+                  <p id="brokenbow-vis"></p>
+                  <p id="brokenbow-wind"></p>
+                  <p id="brokenbow-chill"></p>
                 </div>
               </div>
               <div class="city-forecast">
-                <p id="scottsbluff-forecast"></p>
+                <p id="brokenbow-forecast"></p>
               </div>
             </div>
             <div class="col box">
@@ -95,27 +100,87 @@
             </div>
             <div class="col box">
               <div class="city-id">
-                <p>Norfolk</p>
+                <p>Columbus</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
                   <!-- <p>Temp</p> -->
-                  <p id="norfolk-temp"></p>
+                  <p id="columbus-temp"></p>
                 </div>
                 <div class="high-low col-sm-7">
-                  <p id="norfolk-humidity"></p>
-                  <p id="norfolk-vis"></p>
-                  <p id="norfolk-wind"></p>
-                  <p id="norfolk-chill"></p>
+                  <p id="columbus-humidity"></p>
+                  <p id="columbus-vis"></p>
+                  <p id="columbus-wind"></p>
+                  <p id="columbus-chill"></p>
                 </div>
               </div>
               <div class="city-forecast">
-                <p id="norfolk-forecast"></p>
+                <p id="columbus-forecast"></p>
               </div>
             </div>
             <!-- <div class="col box"></div> -->
           </div>
           <div class="row">
+            <div class="col box">
+              <div class="city-id">
+                <p>Hartington</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="hartington-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="hartington-humidity"></p>
+                  <p id="hartington-vis"></p>
+                  <p id="hartington-wind"></p>
+                  <p id="hartington-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="hartington-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Kearney</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="kearney-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="kearney-humidity"></p>
+                  <p id="kearney-vis"></p>
+                  <p id="kearney-wind"></p>
+                  <p id="kearney-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="kearney-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>Lexington</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="lexington-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="lexington-humidity"></p>
+                  <p id="lexington-vis"></p>
+                  <p id="lexington-wind"></p>
+                  <p id="lexington-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="lexington-forecast"></p>
+              </div>
+            </div>
             <div class="col box">
               <div class="city-id">
                 <p>McCook</p>
@@ -136,24 +201,27 @@
                 <p id="mccook-forecast"></p>
               </div>
             </div>
+            <!-- <div class="col box"></div> -->
+          </div>
+          <div class="row">
             <div class="col box">
               <div class="city-id">
-                <p>Ogallala</p>
+                <p>Norfolk</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
                   <!-- <p>Temp</p> -->
-                  <p id="ogallala-temp"></p>
+                  <p id="norfolk-temp"></p>
                 </div>
                 <div class="high-low col-sm-7">
-                  <p id="ogallala-humidity"></p>
-                  <p id="ogallala-vis"></p>
-                  <p id="ogallala-wind"></p>
-                  <p id="ogallala-chill"></p>
+                  <p id="norfolk-humidity"></p>
+                  <p id="norfolk-vis"></p>
+                  <p id="norfolk-wind"></p>
+                  <p id="norfolk-chill"></p>
                 </div>
               </div>
               <div class="city-forecast">
-                <p id="ogallala-forecast"></p>
+                <p id="norfolk-forecast"></p>
               </div>
             </div>
             <div class="col box">
@@ -178,45 +246,22 @@
             </div>
             <div class="col box">
               <div class="city-id">
-                <p>Lexington</p>
+                <p>Ogallala</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
                   <!-- <p>Temp</p> -->
-                  <p id="lexington-temp"></p>
+                  <p id="ogallala-temp"></p>
                 </div>
                 <div class="high-low col-sm-7">
-                  <p id="lexington-humidity"></p>
-                  <p id="lexington-vis"></p>
-                  <p id="lexington-wind"></p>
-                  <p id="lexington-chill"></p>
+                  <p id="ogallala-humidity"></p>
+                  <p id="ogallala-vis"></p>
+                  <p id="ogallala-wind"></p>
+                  <p id="ogallala-chill"></p>
                 </div>
               </div>
               <div class="city-forecast">
-                <p id="lexington-forecast"></p>
-              </div>
-            </div>
-            <!-- <div class="col box"></div> -->
-          </div>
-          <div class="row">
-            <div class="col box">
-              <div class="city-id">
-                <p>Ainsworth</p>
-              </div>
-              <div class="current row">
-                <div class="current-temp col-sm-5">
-                  <!-- <p>Temp</p> -->
-                  <p id="ainsworth-temp"></p>
-                </div>
-                <div class="high-low col-sm-7">
-                  <p id="ainsworth-humidity"></p>
-                  <p id="ainsworth-vis"></p>
-                  <p id="ainsworth-wind"></p>
-                  <p id="ainsworth-chill"></p>
-                </div>
-              </div>
-              <div class="city-forecast">
-                <p id="ainsworth-forecast"></p>
+                <p id="ogallala-forecast"></p>
               </div>
             </div>
             <div class="col box">
@@ -239,29 +284,52 @@
                 <p id="oneill-forecast"></p>
               </div>
             </div>
+            <!-- <div class="col box"></div> -->
+          </div>
+          <div class="row">
             <div class="col box">
               <div class="city-id">
-                <p>Hartington</p>
+                <p>Plattsmouth</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
                   <!-- <p>Temp</p> -->
-                  <p id="hartington-temp"></p>
+                  <p id="plattsmouth-temp"></p>
                 </div>
                 <div class="high-low col-sm-7">
-                  <p id="hartington-humidity"></p>
-                  <p id="hartington-vis"></p>
-                  <p id="hartington-wind"></p>
-                  <p id="hartington-chill"></p>
+                  <p id="plattsmouth-humidity"></p>
+                  <p id="plattsmouth-vis"></p>
+                  <p id="plattsmouth-wind"></p>
+                  <p id="plattsmouth-chill"></p>
                 </div>
               </div>
               <div class="city-forecast">
-                <p id="hartington-forecast"></p>
+                <p id="plattsmouth-forecast"></p>
               </div>
             </div>
             <div class="col box">
               <div class="city-id">
-                <p>S. Sioux City</p>
+                <p>Scottsbluff</p>
+              </div>
+              <div class="current row">
+                <div class="current-temp col-sm-5">
+                  <!-- <p>Temp</p> -->
+                  <p id="scottsbluff-temp"></p>
+                </div>
+                <div class="high-low col-sm-7">
+                  <p id="scottsbluff-humidity"></p>
+                  <p id="scottsbluff-vis"></p>
+                  <p id="scottsbluff-wind"></p>
+                  <p id="scottsbluff-chill"></p>
+                </div>
+              </div>
+              <div class="city-forecast">
+                <p id="scottsbluff-forecast"></p>
+              </div>
+            </div>
+            <div class="col box">
+              <div class="city-id">
+                <p>S. Souix City</p>
               </div>
               <div class="current row">
                 <div class="current-temp col-sm-5">
@@ -277,49 +345,6 @@
               </div>
               <div class="city-forecast">
                 <p id="ssc-forecast"></p>
-              </div>
-            </div>
-            <!-- <div class="col box"></div> -->
-          </div>
-          <div class="row">
-            <div class="col box">
-              <div class="city-id">
-                <p>Broken Bow</p>
-              </div>
-              <div class="current row">
-                <div class="current-temp col-sm-5">
-                  <!-- <p>Temp</p> -->
-                  <p id="brokenbow-temp"></p>
-                </div>
-                <div class="high-low col-sm-7">
-                  <p id="brokenbow-humidity"></p>
-                  <p id="brokenbow-vis"></p>
-                  <p id="brokenbow-wind"></p>
-                  <p id="brokenbow-chill"></p>
-                </div>
-              </div>
-              <div class="city-forecast">
-                <p id="brokenbow-forecast"></p>
-              </div>
-            </div>
-            <div class="col box">
-              <div class="city-id">
-                <p>Columbus</p>
-              </div>
-              <div class="current row">
-                <div class="current-temp col-sm-5">
-                  <!-- <p>Temp</p> -->
-                  <p id="columbus-temp"></p>
-                </div>
-                <div class="high-low col-sm-7">
-                  <p id="columbus-humidity"></p>
-                  <p id="columbus-vis"></p>
-                  <p id="columbus-wind"></p>
-                  <p id="columbus-chill"></p>
-                </div>
-              </div>
-              <div class="city-forecast">
-                <p id="columbus-forecast"></p>
               </div>
             </div>
             <div class="col box">
@@ -342,30 +367,15 @@
                 <p id="york-forecast"></p>
               </div>
             </div>
-            <div class="col box">
-              <div class="city-id">
-                <p>Plattsmouth</p>
-              </div>
-              <div class="current row">
-                <div class="current-temp col-sm-5">
-                  <!-- <p>Temp</p> -->
-                  <p id="plattsmouth-temp"></p>
-                </div>
-                <div class="high-low col-sm-7">
-                  <p id="plattsmouth-humidity"></p>
-                  <p id="plattsmouth-vis"></p>
-                  <p id="plattsmouth-wind"></p>
-                  <p id="plattsmouth-chill"></p>
-                </div>
-              </div>
-              <div class="city-forecast">
-                <p id="plattsmouth-forecast"></p>
-              </div>
-            </div>
             <!-- <div class="col box"></div> -->
           </div>
         </div>
         <div class="subcontainer-two col-lg-4">
+          <!-- <div class="row">
+            <div class="test-forecast">
+              hello
+            </div>
+          </div> -->
           <div class="alert-box">
             <p class="alert-heading">Alerts</p>
             <div id="alerts-div"></div>
