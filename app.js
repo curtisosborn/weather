@@ -106,7 +106,7 @@ function loop() {
 function getDetail(city) {
   var forecast = new XMLHttpRequest();
   var fore;
-  var now;
+  var now = "";
   forecast.open(
     "GET",
     "https://api.weather.gov/gridpoints/" + city.gridpoints + "/forecast",
@@ -117,13 +117,15 @@ function getDetail(city) {
   forecast.onload = function() {
     if (forecast.status === 200) {
       fore = JSON.parse(forecast.responseText);
-      now =
-        "<div class='detailed-forecast'><h2>" +
-        fore.properties.periods[0].name +
-        "</h2>";
-      now += "<p>" + fore.properties.periods[0].detailedForecast + "</p>";
-      now += "<h2>" + fore.properties.periods[1].name + "</h2>";
-      now += "<p>" + fore.properties.periods[1].detailedForecast + "</p></div>";
+      for (let i = 0; i < fore.properties.periods.length; i++) {
+        now +=
+          "<div class='detailed-forecast'><h2>" +
+          fore.properties.periods[i].name +
+          "</h2>" +
+          "<p>" +
+          fore.properties.periods[i].detailedForecast +
+          "</p></div>";
+      }
       document.getElementById("forecast-div").innerHTML = now;
       document.querySelector(".forecast-heading").innerHTML =
         "Detailed Forecast: " + city.proper;
@@ -247,6 +249,9 @@ function meters2miles(num) {
 function convertWind(num) {
   let direction = "";
   switch (true) {
+    case num === null:
+      direction = "";
+      break;
     case num <= 11.25:
       direction = "N";
       break;
